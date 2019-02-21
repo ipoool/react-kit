@@ -3,9 +3,11 @@
     "browser": true,
     "jest": true
   },
+  "plugins": ["react-hooks"],
   "parser": "babel-eslint",
   "extends": ["airbnb"],
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
     "implicit-arrow-linebreak": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "jsx-a11y/anchor-is-valid": [
