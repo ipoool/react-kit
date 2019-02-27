@@ -1,0 +1,16 @@
+version: "3.5"
+
+services:
+  react-kit-app:
+    container_name: react-kit-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/var/www/html/app"
+      - "/var/www/html/app/node_modules"
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
