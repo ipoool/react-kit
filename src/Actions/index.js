@@ -19,3 +19,9 @@ export function getProfileGithubLoading() {
     type: actionType.PROFILE_GITHUB_LOADING,
   };
 }
+
+export function auth() {
+  return {
+    type: actionType.AUTH,
+  };
+}

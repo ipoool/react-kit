@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { loadDataProfile } from '../Actions/githubAction';
+import { authentication } from '../Actions/auth';
 
 import Layout from './Layout';
 
@@ -11,7 +12,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { profile } = this.props;
+    const { profile, authAction, auth } = this.props;
     return (
       <Layout>
         <div className="text-center">
@@ -45,6 +46,15 @@ class Profile extends React.Component {
                   github page
                 </a>
               </p>
+              <p>
+                {!auth.isLoggin ? (
+                  <button onClick={authAction} className="btn btn-success">
+                    Login
+                  </button>
+                ) : (
+                  ''
+                )}
+              </p>
             </React.Fragment>
           ) : (
             <p className="form-control-static">Please wait...</p>
@@ -57,10 +67,12 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => ({
   profile: state.profileGithubReducer,
+  auth: state.authReducer,
 });
 
 const mapDispatchToProps = dispatch => ({
   loadData: () => dispatch(loadDataProfile()),
+  authAction: () => dispatch(authentication()),
 });
 
 export default connect(

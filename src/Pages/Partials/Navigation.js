@@ -38,6 +38,11 @@ export default function Navigation() {
                 Other Page
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/private-page">
+                Private Page
+              </Link>
+            </li>
           </ul>
           <span className="navbar-text">
             <Cart />
