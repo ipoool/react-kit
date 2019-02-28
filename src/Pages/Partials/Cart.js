@@ -6,7 +6,7 @@ function Cart({ cartReducer }) {
     <React.Fragment>
       Cart
       {' '}
-      <span>{cartReducer.count}</span>
+      <span className="badge badge-danger">{cartReducer.count}</span>
     </React.Fragment>
   );
 }

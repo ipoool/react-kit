@@ -1,8 +1,8 @@
 export const appRoutes = {
   HOME_PAGE: '/',
   PROFILE_PAGE: '/profile',
-  OTHER_PAGE: '/other-page',
-  PRIVATE_PAGE: '/private-page',
+  OTHER_PAGE: '/other',
+  LOGIN_PAGE: '/login',
 };
 
 export const actionType = {
@@ -12,6 +12,7 @@ export const actionType = {
   PROFILE_GITHUB_LOADING: 'PROFILE_GITHUB_LOADING',
 
   AUTH: 'AUTH',
+  SIGNOUT: 'SIGNOUT',
 };
 
 export const appConfig = {

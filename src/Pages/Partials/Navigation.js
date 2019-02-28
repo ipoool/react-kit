@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Cart from '../../Components/Cart';
+import Cart from './Cart';
 
-export default function Navigation() {
+function Navigation({ auth }) {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,26 +24,36 @@ export default function Navigation() {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
+            <li className="nav-item">
               <Link className="nav-link" to="/">
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/profile">
-                Profile
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/other-page">
-                Other Page
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/private-page">
-                Private Page
-              </Link>
-            </li>
+            {auth.isLoggin ? (
+              <React.Fragment>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/profile">
+                    Profile
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/other">
+                    Other Page
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/404-page-not-found">
+                    404 Page
+                  </Link>
+                </li>
+              </React.Fragment>
+            ) : (
+              <li className="nav-item active">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
           <span className="navbar-text">
             <Cart />
@@ -52,3 +63,9 @@ export default function Navigation() {
     </React.Fragment>
   );
 }
+
+const mapStateToProps = state => ({
+  auth: state.authReducer,
+});
+
+export default connect(mapStateToProps)(Navigation);

@@ -8,7 +8,6 @@ export const loadDataProfile = () => (dispatch) => {
     setTimeout(() => {
       const api_url = `${appConfig.API_URL}/users/ipoool`;
       request.get(api_url).then((response) => {
-        console.log(response);
         dispatch(getProfileGithubResult(response.data));
       });
     }, 2000);

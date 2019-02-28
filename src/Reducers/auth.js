@@ -10,6 +10,10 @@ export const authReducer = (state = initialState, action) => {
       return {
         isLoggin: true,
       };
+    case actionType.SIGNOUT:
+      return {
+        isLoggin: false,
+      };
     default:
       return state;
   }

@@ -25,3 +25,9 @@ export function auth() {
     type: actionType.AUTH,
   };
 }
+
+export function signout() {
+  return {
+    type: actionType.SIGNOUT,
+  };
+}

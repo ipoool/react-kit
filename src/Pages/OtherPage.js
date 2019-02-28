@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Layout from './Layout';
 
 export default function OtherPage() {
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    document.title = `Click ${count}`;
-  });
-
   return (
     <Layout>
-      <h1>
+      <h1 className="my-3">
         OTHER PAGE
-        {count}
+        {' '}
+        <span className="badge badge-success">{count}</span>
       </h1>
       <br />
       <button
+        className="btn btn-warning"
         onClick={() => {
           setCount(count + 1);
         }}
       >
-        Update
+        Example Using Hook
       </button>
     </Layout>
   );

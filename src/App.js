@@ -1,17 +1,20 @@
 import React from 'react';
-import Routes from './Routes';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Main from './Main';
 
 // Redux
-import { Provider } from 'react-redux';
 import store from './Store';
 
 class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Routes />
+        <Router>
+          <Main />
+        </Router>
       </Provider>
-    )
+    );
   }
 }
 export default App;
