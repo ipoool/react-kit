@@ -1,17 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { Button } from 'antd';
+import { Buttons, ButtonsGroup } from './index.style';
 
-/** Button component description */
-function Button({ children, onClick }) {
-  return <button onClick={onClick}>{children}</button>;
-}
-Button.defaultProps = {
-  onClick: () => {}
-};
-Button.propTypes = {
-  /** Note for onClick property */
-  onClick: PropTypes.func,
-  /** Note for children property */
-  children: PropTypes.node.isRequired.isRequired
-};
-export default Button;
+const AntButton = Buttons(Button);
+const AntButtonGroup = ButtonsGroup(Button.Group);
+
+export default AntButton;
+export { AntButtonGroup };
